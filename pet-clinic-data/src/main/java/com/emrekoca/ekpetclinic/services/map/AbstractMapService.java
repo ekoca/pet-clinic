@@ -1,12 +1,14 @@
 package com.emrekoca.ekpetclinic.services.map;
 
+import com.emrekoca.ekpetclinic.model.BaseEntity;
+
 import java.util.*;
 
 /**
  * Created by Emre.
  */
-public abstract class AbstractMapService<T, ID> {
-    protected Map<ID, T> map = new HashMap<>();
+public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
+    protected Map<Long, T> map = new HashMap<>();
 
     Set<T> findAll() {
         return new HashSet<>(map.values());
@@ -16,8 +18,12 @@ public abstract class AbstractMapService<T, ID> {
         return Optional.of(map.get(id));
     }
 
-    Optional<T> save(ID id, T t) {
-        map.put(id, t);
+    Optional<T> save(T t) {
+        if (t != null && t.getId() == null) {
+            t.setId(generateId().orElse(1l));
+        }
+
+        map.put(t.getId(), t);
         return Optional.of(t);
     }
 
@@ -27,5 +33,13 @@ public abstract class AbstractMapService<T, ID> {
 
     void delete(T t) {
         map.entrySet().removeIf(entry -> entry.getValue().equals(t));
+    }
+
+    private Optional<Long> generateId() {
+        if (map.isEmpty()) {
+            return Optional.empty();
+        }
+
+        return Optional.of(Collections.max(map.keySet()) + 1);
     }
 }
