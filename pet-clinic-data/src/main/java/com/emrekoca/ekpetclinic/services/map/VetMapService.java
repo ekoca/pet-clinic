@@ -1,7 +1,7 @@
 package com.emrekoca.ekpetclinic.services.map;
 
 import com.emrekoca.ekpetclinic.model.Vet;
-import com.emrekoca.ekpetclinic.services.CrudService;
+import com.emrekoca.ekpetclinic.services.VetService;
 
 import java.util.Optional;
 import java.util.Set;
@@ -9,7 +9,7 @@ import java.util.Set;
 /**
  * Created by Emre.
  */
-public class VetMapService extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetMapService extends AbstractMapService<Vet, Long> implements VetService{
     @Override
     public Optional<Vet> findById(Long id) {
         return super.findById(id);

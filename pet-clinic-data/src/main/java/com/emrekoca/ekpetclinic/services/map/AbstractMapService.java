@@ -16,15 +16,16 @@ public abstract class AbstractMapService<T, ID> {
         return Optional.of(map.get(id));
     }
 
-    Optional<T> save(ID id, T object) {
-        return Optional.of(map.put(id, object));
+    Optional<T> save(ID id, T t) {
+        map.put(id, t);
+        return Optional.of(t);
     }
 
     void deleteById(ID id) {
         map.remove(id);
     }
 
-    void delete(T object) {
-        map.entrySet().removeIf(entry -> entry.getValue().equals(object));
+    void delete(T t) {
+        map.entrySet().removeIf(entry -> entry.getValue().equals(t));
     }
 }
