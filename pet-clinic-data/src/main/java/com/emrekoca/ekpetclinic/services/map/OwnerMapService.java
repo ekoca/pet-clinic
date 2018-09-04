@@ -2,6 +2,7 @@ package com.emrekoca.ekpetclinic.services.map;
 
 import com.emrekoca.ekpetclinic.model.Owner;
 import com.emrekoca.ekpetclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Set;
@@ -9,6 +10,7 @@ import java.util.Set;
 /**
  * Created by Emre.
  */
+@Service
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override

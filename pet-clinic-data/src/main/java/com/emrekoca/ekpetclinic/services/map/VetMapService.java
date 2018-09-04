@@ -2,6 +2,7 @@ package com.emrekoca.ekpetclinic.services.map;
 
 import com.emrekoca.ekpetclinic.model.Vet;
 import com.emrekoca.ekpetclinic.services.VetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Set;
@@ -9,6 +10,7 @@ import java.util.Set;
 /**
  * Created by Emre.
  */
+@Service
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService{
     @Override
     public Optional<Vet> findById(Long id) {

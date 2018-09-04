@@ -6,8 +6,6 @@ import com.emrekoca.ekpetclinic.model.PetType;
 import com.emrekoca.ekpetclinic.model.Vet;
 import com.emrekoca.ekpetclinic.services.OwnerService;
 import com.emrekoca.ekpetclinic.services.VetService;
-import com.emrekoca.ekpetclinic.services.map.OwnerMapService;
-import com.emrekoca.ekpetclinic.services.map.VetMapService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -22,9 +20,9 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        this.ownerService = new OwnerMapService(); //ownerService;
-        this.vetService = new VetMapService(); //vetService;
+    public DataLoader(final OwnerService ownerService, final VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
