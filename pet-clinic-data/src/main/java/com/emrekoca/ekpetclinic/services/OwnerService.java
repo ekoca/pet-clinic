@@ -2,18 +2,10 @@ package com.emrekoca.ekpetclinic.services;
 
 import com.emrekoca.ekpetclinic.model.Owner;
 
-import java.util.Set;
-
 /**
  * Created by Emre.
  */
-public interface OwnerService {
-
-    Owner findByid(Long id);
+public interface OwnerService extends CrudService<Owner, Long>{
 
     Owner findByLastName(String lastName);
-
-    Owner save(Owner owner);
-
-    Set<Owner> findAll();
 }
