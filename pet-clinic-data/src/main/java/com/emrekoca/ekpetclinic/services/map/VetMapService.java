@@ -11,7 +11,14 @@ import java.util.Set;
  * Created by Emre.
  */
 @Service
-public class VetMapService extends AbstractMapService<Vet, Long> implements VetService{
+public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
+
+    private final SpecialitiesMapService specialitiesMapService;
+
+    public VetMapService(SpecialitiesMapService specialitiesMapService) {
+        this.specialitiesMapService = specialitiesMapService;
+    }
+
     @Override
     public Optional<Vet> findById(Long id) {
         return super.findById(id);
@@ -19,6 +26,11 @@ public class VetMapService extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Optional<Vet> save(Vet vet) {
+        if (vet != null && vet.getSpecialities() != null) {
+            vet.getSpecialities().stream().filter(s -> s.getId() != null).forEach(
+                    s -> s.setId(specialitiesMapService.save(s).get().getId())
+            );
+        }
         return super.save(vet);
     }
 
