@@ -2,6 +2,7 @@ package com.emrekoca.ekpetclinic.services.map;
 
 import com.emrekoca.ekpetclinic.model.PetType;
 import com.emrekoca.ekpetclinic.services.PetTypeService;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Set;
@@ -9,6 +10,7 @@ import java.util.Set;
 /**
  * Created by Emre.
  */
+@Service
 public class PetTypeMapService extends AbstractMapService<PetType, Long> implements PetTypeService {
     @Override
     public Optional<PetType> findById(Long id) {

@@ -1,15 +1,15 @@
 package com.emrekoca.ekpetclinic.bootstrap;
 
-import com.emrekoca.ekpetclinic.model.Owner;
-import com.emrekoca.ekpetclinic.model.Pet;
-import com.emrekoca.ekpetclinic.model.PetType;
-import com.emrekoca.ekpetclinic.model.Vet;
+import com.emrekoca.ekpetclinic.model.*;
+import com.emrekoca.ekpetclinic.model.visit.Visit;
 import com.emrekoca.ekpetclinic.services.OwnerService;
+import com.emrekoca.ekpetclinic.services.PetTypeService;
 import com.emrekoca.ekpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 /**
  * Created by Emre.
@@ -19,32 +19,36 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
+    //private final SpecialtyService specialtyService;
 
-    public DataLoader(final OwnerService ownerService, final VetService vetService) {
+    public DataLoader(final OwnerService ownerService, final VetService vetService, final PetTypeService petTypeService){//, final SpecialtyService specialtyService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
+        //this.specialtyService = specialtyService;
     }
 
     @Override
     public void run(String... args) throws Exception {
         PetType dog = new PetType();
         dog.setName("Dog");
-        //PetType savedDogPetType = petTypeService.save(dog);
+        Optional<PetType> savedDogPetType = petTypeService.save(dog);
 
         PetType cat = new PetType();
         cat.setName("Cat");
-        //PetType savedCatPetType = petTypeService.save(cat);
+        Optional<PetType> savedCatPetType = petTypeService.save(cat);
 
-        //Speciality radiology = new Speciality();
-        //radiology.setDescription("Radiology");
+        Speciality radiology = new Speciality();
+        radiology.setDescription("Radiology");
         //Speciality savedRadiology = specialtyService.save(radiology);
 
-        //Speciality surgery = new Speciality();
-        //surgery.setDescription("Surgery");
+        Speciality surgery = new Speciality();
+        surgery.setDescription("Surgery");
         //Speciality savedSurgery = specialtyService.save(surgery);
 
-        //Speciality dentistry = new Speciality();
-        //dentistry.setDescription("dentistry");
+        Speciality dentistry = new Speciality();
+        dentistry.setDescription("dentistry");
         //Speciality savedDentistry = specialtyService.save(dentistry);
 
         Owner owner1 = new Owner();
@@ -79,10 +83,10 @@ public class DataLoader implements CommandLineRunner {
 
         ownerService.save(owner2);
 
-        //Visit catVisit = new Visit();
-        //catVisit.setPet(fionasCat);
-        //catVisit.setDate(LocalDate.now());
-        //catVisit.setDescription("Sneezy Kitty");
+        Visit catVisit = new Visit();
+        catVisit.setPet(fionasCat);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneezy Kitty");
 
         //visitService.save(catVisit);
 
