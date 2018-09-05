@@ -9,7 +9,7 @@ import java.util.Set;
 public interface CrudService<T, ID> {
     Optional<T> findById(ID id);
 
-    Optional<T> save(T owner);
+    Optional<T> save(T object);
 
     Set<T> findAll();
 
