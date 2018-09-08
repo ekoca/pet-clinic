@@ -4,6 +4,7 @@ import com.emrekoca.ekpetclinic.model.Owner;
 import com.emrekoca.ekpetclinic.services.OwnerService;
 import com.emrekoca.ekpetclinic.services.PetService;
 import com.emrekoca.ekpetclinic.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -13,6 +14,7 @@ import java.util.Set;
  * Created by Emre.
  */
 @Service
+@Profile({"default", "mapservice"})
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;

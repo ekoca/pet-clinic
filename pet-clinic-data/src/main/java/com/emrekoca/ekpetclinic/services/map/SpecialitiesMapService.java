@@ -2,6 +2,7 @@ package com.emrekoca.ekpetclinic.services.map;
 
 import com.emrekoca.ekpetclinic.model.Speciality;
 import com.emrekoca.ekpetclinic.services.SpecialitiesService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -11,6 +12,7 @@ import java.util.Set;
  * Created by Emre.
  */
 @Service
+@Profile({"default", "mapservice"})
 public class SpecialitiesMapService extends AbstractMapService<Speciality, Long> implements SpecialitiesService {
     @Override
     public Optional<Speciality> findById(Long id) {

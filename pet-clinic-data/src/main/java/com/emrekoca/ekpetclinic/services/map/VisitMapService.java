@@ -1,7 +1,7 @@
 package com.emrekoca.ekpetclinic.services.map;
 
-import com.emrekoca.ekpetclinic.model.PetType;
-import com.emrekoca.ekpetclinic.services.PetTypeService;
+import com.emrekoca.ekpetclinic.model.visit.Visit;
+import com.emrekoca.ekpetclinic.services.VisitService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -13,19 +13,20 @@ import java.util.Set;
  */
 @Service
 @Profile({"default", "mapservice"})
-public class PetTypeMapService extends AbstractMapService<PetType, Long> implements PetTypeService {
+public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
+
     @Override
-    public Optional<PetType> findById(Long id) {
+    public Optional<Visit> findById(Long id) {
         return super.findById(id);
     }
 
     @Override
-    public Optional<PetType> save(PetType petType) {
-        return super.save(petType);
+    public Optional<Visit> save(Visit visit) {
+        return super.save(visit);
     }
 
     @Override
-    public Set<PetType> findAll() {
+    public Set<Visit> findAll() {
         return super.findAll();
     }
 
@@ -35,7 +36,7 @@ public class PetTypeMapService extends AbstractMapService<PetType, Long> impleme
     }
 
     @Override
-    public void delete(PetType petType) {
-        super.delete(petType);
+    public void delete(Visit visit) {
+        super.delete(visit);
     }
 }

@@ -2,10 +2,7 @@ package com.emrekoca.ekpetclinic.bootstrap;
 
 import com.emrekoca.ekpetclinic.model.*;
 import com.emrekoca.ekpetclinic.model.visit.Visit;
-import com.emrekoca.ekpetclinic.services.OwnerService;
-import com.emrekoca.ekpetclinic.services.PetTypeService;
-import com.emrekoca.ekpetclinic.services.SpecialitiesService;
-import com.emrekoca.ekpetclinic.services.VetService;
+import com.emrekoca.ekpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -22,12 +19,14 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialitiesService specialitiesService;
+    private final VisitService visitService;
 
-    public DataLoader(final OwnerService ownerService, final VetService vetService, final PetTypeService petTypeService, final SpecialitiesService specialitiesService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialitiesService specialitiesService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialitiesService = specialitiesService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -89,7 +88,7 @@ public class DataLoader implements CommandLineRunner {
         catVisit.setDate(LocalDate.now());
         catVisit.setDescription("Sneezy Kitty");
 
-        //visitService.save(catVisit);
+        visitService.save(catVisit);
 
         System.out.println("Loaded Owners....");
 
