@@ -5,5 +5,5 @@ import com.emrekoca.ekpetclinic.model.Speciality;
 /**
  * Created by Emre.
  */
-public interface SpecialitiesService extends CrudService<Speciality,Long> {
+public interface SpecialitiesService extends CrudService<Speciality, Long> {
 }

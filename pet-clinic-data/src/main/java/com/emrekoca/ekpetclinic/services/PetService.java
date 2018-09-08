@@ -5,5 +5,5 @@ import com.emrekoca.ekpetclinic.model.Pet;
 /**
  * Created by Emre.
  */
-public interface PetService extends CrudService<Pet, Long>{
+public interface PetService extends CrudService<Pet, Long> {
 }
