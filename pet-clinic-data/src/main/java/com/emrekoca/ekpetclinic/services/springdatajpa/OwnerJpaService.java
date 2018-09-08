@@ -5,6 +5,8 @@ import com.emrekoca.ekpetclinic.repositories.OwnerRepository;
 import com.emrekoca.ekpetclinic.repositories.PetRepository;
 import com.emrekoca.ekpetclinic.repositories.PetTypeRepository;
 import com.emrekoca.ekpetclinic.services.OwnerService;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -13,6 +15,8 @@ import java.util.Set;
 /**
  * Created by Emre.
  */
+@Service
+@Profile("springdatajpa")
 public class OwnerJpaService implements OwnerService {
 
     private final OwnerRepository ownerRepository;
