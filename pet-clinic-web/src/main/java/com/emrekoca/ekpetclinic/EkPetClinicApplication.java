@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class EkPetClinicApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EkPetClinicApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(EkPetClinicApplication.class, args);
+    }
 }

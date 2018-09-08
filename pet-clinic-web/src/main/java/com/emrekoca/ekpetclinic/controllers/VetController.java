@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class VetController {
 
+    private final VetService vetService;
+
     public VetController(VetService vetService) {
         this.vetService = vetService;
     }
-
-    private final VetService vetService;
 
     @RequestMapping({"/vets", "/vets.html", "/vets/index.html"})
     public String vets(Model model) {
