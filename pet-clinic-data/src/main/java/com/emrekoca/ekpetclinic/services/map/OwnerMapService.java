@@ -34,7 +34,7 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     public Optional<Owner> save(Owner owner) {
         if (owner != null && owner.getPets() != null) {
             owner.getPets().stream().filter(pet -> pet.getType() != null).forEach(
-                    pet ->pet.setType(petTypeService.save(pet.getType()).get())
+                    pet -> pet.setType(petTypeService.save(pet.getType()).get())
             );
 
             owner.getPets().stream().filter(pet -> pet.getId() != null).forEach(
