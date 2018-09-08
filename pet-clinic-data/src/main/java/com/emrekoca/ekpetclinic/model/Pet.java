@@ -1,7 +1,11 @@
 package com.emrekoca.ekpetclinic.model;
 
+import com.emrekoca.ekpetclinic.model.visit.Visit;
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Emre.
@@ -21,6 +25,9 @@ public class Pet extends NamedEntity{
 
     @Column(name = "birthdate")
     private LocalDate birthDate;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
+    private Set<Visit> visits = new HashSet<>();
 
     public PetType getType() {
         return type;
