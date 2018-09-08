@@ -2,6 +2,7 @@ package com.emrekoca.ekpetclinic.services.map;
 
 import com.emrekoca.ekpetclinic.model.visit.Visit;
 import com.emrekoca.ekpetclinic.services.VisitService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -11,6 +12,7 @@ import java.util.Set;
  * Created by Emre.
  */
 @Service
+@Profile({"default", "mapservice"})
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override

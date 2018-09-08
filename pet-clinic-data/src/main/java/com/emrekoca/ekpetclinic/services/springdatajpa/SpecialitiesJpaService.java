@@ -3,6 +3,8 @@ package com.emrekoca.ekpetclinic.services.springdatajpa;
 import com.emrekoca.ekpetclinic.model.Speciality;
 import com.emrekoca.ekpetclinic.repositories.SpecialitiesRepository;
 import com.emrekoca.ekpetclinic.services.SpecialitiesService;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -11,6 +13,8 @@ import java.util.Set;
 /**
  * Created by Emre.
  */
+@Service
+@Profile("springdatajpa")
 public class SpecialitiesJpaService implements SpecialitiesService {
 
     private final SpecialitiesRepository specialitiesRepository;
