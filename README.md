@@ -1,4 +1,4 @@
-# pet-clinic
+# Pet Clinic Web Application [![CircleCI](https://circleci.com/setup-project/gh/ekoca/pet-clinic.svg?style=svg)](https://circleci.com/setup-project/gh/ekoca/pet-clinic)
 
 Pet Clinic is a based on the [spring-projects/spring-petclinic](https://github.com/spring-projects/spring-petclinic).
 It allows the Spring community to maintain a Petclinic version with a plain old **Spring Framework configuration**
